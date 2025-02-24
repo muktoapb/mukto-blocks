@@ -24,7 +24,14 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
+
 function create_block_mukto_blocks_block_init() {
-	register_block_type( __DIR__ . '/build/mukto-blocks' );
+	$blocks = array(
+		'mukto-blocks',
+		'tesmimonial'
+	);
+	foreach ($blocks as $block) {
+		register_block_type( __DIR__ . "/build/$block" );
+	}
 }
 add_action( 'init', 'create_block_mukto_blocks_block_init' );
